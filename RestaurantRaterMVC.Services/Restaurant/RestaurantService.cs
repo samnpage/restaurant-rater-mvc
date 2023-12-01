@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using RestaurantRaterMVC.Data;
+using RestaurantRaterMVC.Entities.Data;
 using RestaurantRaterMVC.Models.Restaurant;
 
 namespace RestaurantRaterMVC.Services.Restaurant;
@@ -25,5 +26,18 @@ public class RestaurantService : IRestaurantService
             .ToListAsync();
         
         return restaurants;
+    }
+
+    // Create Method
+    public async Task<bool> CreateRestaurantAsync(RestaurantCreate model)
+    {
+        RestaurantEntity entity = new()
+        {
+            Name = model.Name,
+            Location = model.Location
+        };
+
+        _context.Restaurants.Add(entity);
+        return await _context.SaveChangesAsync() == 1;
     }
 }

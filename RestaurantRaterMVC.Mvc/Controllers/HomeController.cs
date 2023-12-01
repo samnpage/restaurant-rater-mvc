@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using RestaurantRaterMVC.Model;
+using RestaurantRaterMVC.Models;
 
 namespace RestaurantRaterMVC.Controllers;
 
