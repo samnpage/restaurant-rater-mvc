@@ -1,4 +1,5 @@
-namespace RestaurantRaterMVC.Models;
+namespace RestaurantRaterMVC.Models
+;
 
 public class ErrorViewModel
 {

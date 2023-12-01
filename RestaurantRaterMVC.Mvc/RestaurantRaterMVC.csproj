@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <ProjectReference Include="..\RestaurantRaterMVC.Models\RestaurantRaterMVC.Models.csproj" />
+    <ProjectReference Include="..\RestaurantRaterMVC.Services\RestaurantRaterMVC.Services.csproj" />
+    <ProjectReference Include="..\RestaurantRaterMVC.Data\RestaurantRaterMVC.Data.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>520d3be1-519a-4905-9fb7-7b42dcb85e82</UserSecretsId>
+  </PropertyGroup>
+
+</Project>
