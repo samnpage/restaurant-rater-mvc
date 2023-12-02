@@ -19,4 +19,21 @@ public class RestaurantController : Controller
         return View(restaurants);
     }
 
+    [HttpGet]
+    public IActionResult Create()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Create(RestaurantCreate model)
+    {
+        if (!ModelState.IsValid)
+            return View(model);
+
+        await _service.CreateRestaurantAsync(model);
+
+        return RedirectToAction(nameof(Index));
+    }
+
 }
