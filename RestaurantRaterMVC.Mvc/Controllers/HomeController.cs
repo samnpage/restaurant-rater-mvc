@@ -1,8 +1,8 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using RestaurantRaterMVC.Models;
 
-namespace RestaurantRaterMVC.Controllers;
+namespace RestaurantRaterMVC.MVC.Controllers;
 
 public class HomeController : Controller
 {

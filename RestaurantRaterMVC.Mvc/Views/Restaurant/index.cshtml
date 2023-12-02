@@ -17,6 +17,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Score)
             </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -33,7 +34,7 @@
                     }
                     else
                     {
-                        <span class="text-muted">No Ratings yet</span>
+                        <span class="text-muted">No Ratings Yet</span>
                     }
                 </td>
                 <td>
@@ -42,7 +43,6 @@
                     <a asp-action="Details" asp-route-id="@item.Id">Details</a>
                     <span>|</span>
                     <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                    <span>|</span>
                 </td>
             </tr>
         }

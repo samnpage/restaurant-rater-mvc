@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantRaterMVC.Mvc", "RestaurantRaterMVC.Mvc\RestaurantRaterMVC.csproj", "{2EF021D4-2DC9-4A81-8CE9-7AF5A3696091}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantRaterMVC.Models", "RestaurantRaterMVC.Models\RestaurantRaterMVC.Models.csproj", "{201C4A42-3C02-4EF1-92D2-9B5143B6E7C8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantRaterMVC.Data", "RestaurantRaterMVC.Data\RestaurantRaterMVC.Data.csproj", "{498D0827-FF10-4950-8763-E650069492EC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantRaterMVC.Services", "RestaurantRaterMVC.Services\RestaurantRaterMVC.Services.csproj", "{3C83B242-B7EE-457E-8DC7-26325985FB53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantRaterMVC.MVC", "RestaurantRaterMVC.MVC\RestaurantRaterMVC.MVC.csproj", "{33DAB693-9FFC-4E5A-8B3C-8A9184A1FFB8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,5 +36,9 @@ Global
 		{3C83B242-B7EE-457E-8DC7-26325985FB53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C83B242-B7EE-457E-8DC7-26325985FB53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C83B242-B7EE-457E-8DC7-26325985FB53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33DAB693-9FFC-4E5A-8B3C-8A9184A1FFB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33DAB693-9FFC-4E5A-8B3C-8A9184A1FFB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33DAB693-9FFC-4E5A-8B3C-8A9184A1FFB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33DAB693-9FFC-4E5A-8B3C-8A9184A1FFB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

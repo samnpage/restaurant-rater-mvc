@@ -13,20 +13,34 @@ public class RestaurantService : IRestaurantService
     }
 
     // Get All Method
-    public async Task<List<RestaurantListItem>> GetAllRestaurantsAsync()
-    {
-        List<RestaurantListItem> restaurants = await _context.Restaurants
-            .Include(r => r.Ratings)
-            .Select(r => new RestaurantListItem()
-            {
-                Id = r.Id,
-                Name = r.Name,
-                Score = r.AverageRating
-            })
-            .ToListAsync();
+    // public async Task<List<RestaurantListItem>> GetAllRestaurantsAsync()
+    // {
+    //     List<RestaurantListItem> restaurants = await _context.Restaurants
+    //         .Include(r => r.Ratings)
+    //         .Select(r => new RestaurantListItem()
+    //         {
+    //             Id = r.Id,
+    //             Name = r.Name,
+    //             Score = r.AverageRating
+    //         })
+    //         .ToListAsync();
         
-        return restaurants;
-    }
+    //     return restaurants;
+    // }
+
+    public async Task<IEnumerable<RestaurantListItem>> GetAllRestaurantsAsync()
+        {
+            List<RestaurantListItem> restaurants = await _context.Restaurants
+                .Include(r => r.Ratings)
+                .Select(r => new RestaurantListItem()
+                {
+                    Id = r.Id,
+                    Name = r.Name,
+                    Score = (double)r.AverageRating
+                })
+                .ToListAsync();
+            return restaurants;
+        }
 
     // Create Method
     public async Task<bool> CreateRestaurantAsync(RestaurantCreate model)
