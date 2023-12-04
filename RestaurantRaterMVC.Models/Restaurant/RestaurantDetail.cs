@@ -8,6 +8,6 @@ public class RestaurantDetail
     public string? Location { get; set; }
 
     [Display(Name = "Average Score")]
-    [DisplayFormat(DataFormatString = "[0:N2]")]
+    [DisplayFormat(DataFormatString = "{0:N2}")]
     public double? Score { get; set; }
 }
