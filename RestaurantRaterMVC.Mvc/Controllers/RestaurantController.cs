@@ -76,4 +76,22 @@ public class RestaurantController : Controller
         ModelState.AddModelError("Saver Error", "Could not update the Restaurant. Please try again.");
         return View(model);
     }
+
+    [HttpGet]
+    public async Task<IActionResult> Delete(int id)
+    {
+        RestaurantDetail? restaurant = await _service.GetRestaurantAsync(id);
+        if (restaurant is null)
+            return RedirectToAction(nameof(Index));
+
+        return View(restaurant);
+    }
+
+    [HttpPost]
+    [ActionName(nameof(Delete))]
+    public async Task<IActionResult> ConfirmDelete(int id)
+    {
+        await _service.DeleteRestaurantAsync(id);
+        return RedirectToAction(nameof(Index));
+    }
 }
