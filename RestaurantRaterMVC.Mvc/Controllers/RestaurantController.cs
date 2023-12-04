@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using RestaurantRaterMVC.Models.Restaurant;
 using RestaurantRaterMVC.Services.Restaurant;
 
-namespace RestaurantRaterMVC.Controllers;
+namespace RestaurantRaterMVC.MVC.Controllers;
 
 public class RestaurantController : Controller
 {
