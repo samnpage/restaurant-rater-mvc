@@ -16,5 +16,5 @@ public interface IRestaurantService
     Task<bool> UpdateRestaurantAsync(RestaurantEdit model);
 
     // Delete
-    Task<bool> DeleteRestuarnatAsync(int id);
+    Task<bool> DeleteRestaurantAsync(int id);
 }
