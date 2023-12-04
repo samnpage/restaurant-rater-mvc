@@ -9,5 +9,5 @@ public class RestaurantDetail
 
     [Display(Name = "Average Score")]
     [DisplayFormat(DataFormatString = "[0:N2]")]
-    public double Score { get; set; }
+    public double? Score { get; set; }
 }
