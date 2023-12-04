@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using RestaurantRaterMVC.Data;
 using RestaurantRaterMVC.Models.Rating;
 
-namespace RestaurantRaterMVC.Services.Ratings;
+namespace RestaurantRaterMVC.Services.Rating;
 public class RatingService : IRatingService
 {
     private readonly RestaurantDbContext _context;
