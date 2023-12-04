@@ -4,7 +4,13 @@
 }
 
 <h1>@Model.Name</h1>
-<h2>Restaurant Details</h2>
+<div>
+    <h2>Restaurant Details</h2>
+    <a asp-asp-controller="Rating" asp-action="Create" asp-route-id="@Model.Id" class="btn btn-link align-self-center">
+        Add Rating
+    </a>
+</div>
+
 <hr>
 
 <dl class="row">
