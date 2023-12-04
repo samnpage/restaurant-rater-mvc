@@ -12,20 +12,18 @@ public class RestaurantService : IRestaurantService
         _context = context;
     }
 
-    // public async Task<List<RestaurantListItem>> GetAllRestaurantsAsync()
-    // {
-    //     List<RestaurantListItem> restaurants = await _context.Restaurants
-    //         .Include(r => r.Ratings)
-    //         .Select(r => new RestaurantListItem()
-    //         {
-    //             Id = r.Id,
-    //             Name = r.Name,
-    //             Score = r.AverageRating
-    //         })
-    //         .ToListAsync();
-        
-    //     return restaurants;
-    // }
+    // Create Method
+    public async Task<bool> CreateRestaurantAsync(RestaurantCreate model)
+    {
+        RestaurantEntity entity = new()
+        {
+            Name = model.Name,
+            Location = model.Location
+        };
+
+        _context.Restaurants.Add(entity);
+        return await _context.SaveChangesAsync() == 1;
+    }
 
     // Get All Method
     public async Task<IEnumerable<RestaurantListItem>> GetAllRestaurantsAsync()
@@ -58,16 +56,33 @@ public class RestaurantService : IRestaurantService
             };
     }
 
-    // Create Method
-    public async Task<bool> CreateRestaurantAsync(RestaurantCreate model)
+    // Update Method
+    public async Task<bool> UpdateRestaurantAsync(RestaurantEdit model)
     {
-        RestaurantEntity entity = new()
-        {
-            Name = model.Name,
-            Location = model.Location
-        };
+        RestaurantEntity? entity = await _context.Restaurants.FindAsync(model.Id);
 
-        _context.Restaurants.Add(entity);
+        if (entity is null)
+            return false;
+
+        entity.Name = model.Name;
+        entity.Location = model.Location;
+        return await _context.SaveChangesAsync() == 1;
+    }
+
+    // Delete Method
+    public async Task<bool> DeleteRestaurantAsync(int id)
+    {
+        RestaurantEntity? entity = await _context.Restaurants.FindAsync(id);
+        if (entity is null)
+            return false;
+
+        var ratings = await _context.Ratings
+            .Where(r => r.RestaurantId == entity.Id)
+            .ToListAsync();
+        _context.Ratings.RemoveRange(ratings);
+        await _context.SaveChangesAsync();
+
+        _context.Restaurants.Remove(entity);
         return await _context.SaveChangesAsync() == 1;
     }
 }
