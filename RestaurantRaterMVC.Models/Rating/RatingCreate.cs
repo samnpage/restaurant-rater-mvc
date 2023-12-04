@@ -9,5 +9,5 @@ public class RatingCreate
 
     [Required, Range(1, 5)]
     [Display(Name = "Rating")]
-    public double? Score { get; set; }
+    public double Score { get; set; }
 }
