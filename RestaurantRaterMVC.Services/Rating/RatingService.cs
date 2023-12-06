@@ -1,3 +1,4 @@
+using System.Data.Common;
 using Microsoft.EntityFrameworkCore;
 using RestaurantRaterMVC.Data;
 using RestaurantRaterMVC.Entities.Data;
@@ -32,6 +33,7 @@ public class RatingService : IRatingService
             .Include(r => r.Restaurant)
             .Select(r => new RatingListItem
             {
+                Id = r.Id,
                 RestaurantName = r.Restaurant.Name,
                 Score = r.Score
             })
