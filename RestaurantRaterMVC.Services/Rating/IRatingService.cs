@@ -3,10 +3,14 @@ using RestaurantRaterMVC.Models.Rating;
 namespace RestaurantRaterMVC.Services.Rating;
 public interface IRatingService
 {
-    // Create Method
+    // Create
     Task<bool> CreateRatingAsync(RatingCreate model);
     
-    // Read Methods
+    // Read
     Task<List<RatingListItem>> GetRatingsAsync();
     Task<List<RatingListItem>> GetRestaurantRatingsAsync(int restaurantId);
+    Task<RatingDetail?> GetRatingByIdAsync(int id);
+
+    // Delete
+    Task<bool> DeleteRatingAsync(int id);
 }
