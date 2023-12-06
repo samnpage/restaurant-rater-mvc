@@ -12,7 +12,7 @@ public class RatingService : IRatingService
         _context = context;
     }
 
-    // Create Method
+    // Create
     public async Task<bool> CreateRatingAsync(RatingCreate model)
     {
         RatingEntity entity = new()
@@ -25,7 +25,7 @@ public class RatingService : IRatingService
         return await _context.SaveChangesAsync() == 1;
     }
 
-    // Read Method
+    // Read
     public async Task<List<RatingListItem>> GetRatingsAsync()
     {
         var ratings = await _context.Ratings
@@ -37,10 +37,10 @@ public class RatingService : IRatingService
             })
             .ToListAsync();
 
-        return ratings;            
+        return ratings;
     }
 
-    // Read by Id Method
+    // Read by Restaurant Id
     public async Task<List<RatingListItem>> GetRestaurantRatingsAsync(int restaurantId)
     {
         var ratings = await _context.Ratings
@@ -56,29 +56,29 @@ public class RatingService : IRatingService
         return ratings;
     }
 
-    public async Task<RatingDetail?> GetRatingAsync(int id)
+    // Read by Rating Id
+    public async Task<RatingDetail?> GetRatingByIdAsync(int id)
     {
         RatingEntity? rating = await _context.Ratings
-            .FindAsync(id);
-        
-        RatingDetail detail = new()
+            .FirstOrDefaultAsync(r => r.Id == id);
+
+        return rating is null ? null : new()
         {
-            rating.Restaurant = detail.
-        }
+            Id = rating.Id,
+            Score = rating.Score
+        };
     }
 
-    // Delete Method
-    public async Task<bool> DeleteRestaurantAsync(int id)
+    // Delete
+    public async Task<bool> DeleteRatingAsync(int id)
     {
         RatingEntity? entity = await _context.Ratings.FindAsync(id);
         if (entity is null)
             return false;
 
-        var ratings = await _context.Ratings
-            .Where(r => r.RestaurantId == entity.Id)
-            .ToListAsync();
-        _context.Ratings.RemoveRange(ratings);
-        await _context.SaveChangesAsync();
+        // var ratings = await _context.Ratings.Where(r => r.Id == entity.Id).ToListAsync();
+        // _context.Ratings.RemoveRange(ratings);
+        // await _context.SaveChangesAsync();
 
         _context.Ratings.Remove(entity);
         return await _context.SaveChangesAsync() == 1;
